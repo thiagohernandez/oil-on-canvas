@@ -5,73 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oil on canvas</title>
 
-    <style>
-        html, body, .wrapper {
-            height:  100%;
-        }
-        .wrapper {
-            box-sizing: border-box;
-            padding: 32px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .wrapper img {
-            max-width:  240px;
-            margin: 0 auto;
-            display: block;
-        }
-        .wrapper h1 {
-            text-align :center;
-            color:  #000;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@301&display=swap" rel="stylesheet">
 
-
-        .video-fluid {
-            display: block;
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    <link href="css/style.css" rel="stylesheet">
 
 </head>
-<body style="background: rgba(32, 72, 32, 0.25);">
+<body>
     
     <div class="wrapper"> 
         <div class="content">
-            <div class="video-to-canvas-component">
-                <canvas width="1280" height="720" class="canvas-video-canvas video-fluid"></canvas>
-                <video autoplay loop muted playsinline controls class="canvas-video-video" data-framerate="24"> 
-                    <source src="SampleVideo_1280x720_1mb.mp4" type="video/mp4">
-                </video>
+            <div class="page-header">
+                <h1>Le Voyage dans la Lune</h1>
+                <h2>Georges Méliès</h2>
             </div>
+            
+            <div class="container-grid--wrapper">
+                <div class="video-to-canvas-component video-to-canvas-component-absolute">
+                    <canvas width="930" height="720" class="canvas-video-canvas video-fluid"></canvas>
+                    <video autoplay loop muted playsinline controls class="canvas-video-video" data-framerate="30"> 
+                        <source src="video/Le-Voyage-dans-la-Lune.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="container-grid">
+                    <div class="video-to-canvas-component">
+                        <canvas width="930" height="720" class="canvas-video-canvas video-fluid"></canvas>
+                        <video autoplay loop muted playsinline controls class="canvas-video-video" data-framerate="30"> 
+                            <source src="video/Le-Voyage-dans-la-Lune.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-to-canvas-component">
+                        <canvas width="930" height="720" class="canvas-video-canvas video-fluid"></canvas>
+                        <video autoplay loop muted playsinline controls class="canvas-video-video" data-framerate="30"> 
+                            <source src="video/Le-Voyage-dans-la-Lune.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-to-canvas-component">
+                        <canvas width="930" height="720" class="canvas-video-canvas video-fluid"></canvas>
+                        <video autoplay loop muted playsinline controls class="canvas-video-video" data-framerate="30"> 
+                            <source src="video/Le-Voyage-dans-la-Lune.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-to-canvas-component">
+                        <canvas width="930" height="720" class="canvas-video-canvas video-fluid"></canvas>
+                        <video autoplay loop muted playsinline controls class="canvas-video-video" data-framerate="30"> 
+                            <source src="video/Le-Voyage-dans-la-Lune.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-to-canvas-component">
+                        <canvas width="930" height="720" class="canvas-video-canvas video-fluid"></canvas>
+                        <video autoplay loop muted playsinline controls class="canvas-video-video" data-framerate="30"> 
+                            <source src="video/Le-Voyage-dans-la-Lune.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-to-canvas-component">
+                        <canvas width="930" height="720" class="canvas-video-canvas video-fluid"></canvas>
+                        <video autoplay loop muted playsinline controls class="canvas-video-video" data-framerate="30"> 
+                            <source src="video/Le-Voyage-dans-la-Lune.mp4" type="video/mp4">
+                        </video>
+                    </div>    
+                </div>
+            </div>
+            
         </div>
     </div>
-    <script>
-        const videoToCanvas = document.querySelectorAll('.video-to-canvas-component');
-        if (videoToCanvas) {
-            videoToCanvas.forEach((item) => {
-                const canvas = item.querySelector('canvas');
-                const video = item.querySelector('video');
-                let framerate = video.getAttribute('data-framerate');
-                console.log(framerate);
-                if (!framerate) {
-                    framerate = 30;
-                }
-                let ctx = canvas.getContext('2d');
-                video.play(); 
-                video.addEventListener('play', function() {
-                    var $this = this; //cache
-                    (function loop() {
-                      if (!$this.paused && !$this.ended) {
-                        ctx.drawImage($this, 0, 0);
-                        setTimeout(loop, 1000 / framerate); // drawing at 30fps
-                      }
-                    })();
-                }, 0);
-                video.style.display = 'none';
-            });
-        }
-    </script>
+    <script src="js/oil-on-canvas.js"></script>
 </body>
 </html>

@@ -1,0 +1,60 @@
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #000;
+    color: #FC3468;
+    padding: 0;
+    margin: 0;
+
+}
+
+.wrapper {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.video-fluid {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.container-grid {
+    display: grid; 
+    grid-auto-flow: row dense; 
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 0; 
+}
+
+.page-header {
+    padding: 72px 32px 42px 32px;
+    text-align: left;
+}
+.page-header h1 {
+    letter-spacing: -0.025em;
+    font-size: 102px;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+.page-header h2 {
+    letter-spacing: -0.025em;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.container-grid--wrapper {
+    position: relative;
+}
+.video-to-canvas-component-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) scale(1.5);
+    z-index: 99;
+    filter: blur(15px);
+    mix-blend-mode: difference;
+}
